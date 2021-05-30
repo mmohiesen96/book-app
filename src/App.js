@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from './Header';
-import IsLoadingAndError from './IsLoadingAndError';
 import './App.css';
 import Footer from './Footer';
 import { withAuth0 } from '@auth0/auth0-react';
