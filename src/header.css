@@ -1,7 +1,12 @@
 a{
   color:#fff;
+  margin-left: 20px;
 }
 
 a:hover{
   color:darkgrey;
+}
+
+.logging{
+  margin-left: 74%;
 }
