@@ -1,5 +1,7 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { useAuth0 } from '@auth0/auth0-react';
+
 
 function LoginButton() {
     const {
@@ -8,7 +10,7 @@ function LoginButton() {
     } = useAuth0();
 
     return !isAuthenticated && (
-        <button onClick={loginWithRedirect}>Log in</button>
+        <Button onClick={loginWithRedirect} className = 'logging' variant = 'danger'>Log in</Button>
     );
 }
 

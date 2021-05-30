@@ -1,4 +1,12 @@
 .card{
-  margin: 100px auto;
+  margin: 300px auto;
   text-align: center;
+}
+
+.card .logging{
+  margin: 0;
+}
+
+.main {
+  height: 80%;
 }
