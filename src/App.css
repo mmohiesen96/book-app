@@ -1,3 +1,18 @@
 #root{
     height: 1000px;
 }
+
+
+img{
+    height: 350px;
+    width: 350px !important;
+}
+.w-100{
+    width: 350px !important;
+}
+
+.carousel-caption {
+    color:black;
+    width: 50%;
+    margin-left: 150px;
+}
