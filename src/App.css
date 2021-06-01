@@ -4,15 +4,15 @@
 
 
 img{
-    height: 350px;
-    width: 350px !important;
+    height: 250px;
+    width: 250px !important;
+    margin: auto;
 }
 .w-100{
     width: 350px !important;
 }
 
-.carousel-caption {
-    color:black;
-    width: 50%;
-    margin-left: 150px;
+/* .card{
+    float: left;
 }
+ */
