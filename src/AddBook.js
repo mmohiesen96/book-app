@@ -1,11 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Form, Button } from 'react-bootstrap';
-
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class AddBook extends React.Component {
     render() {
-        return (
+        return (<>
             <Modal show={this.props.showModalBool} onHide={this.props.hideModal}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add a Book</Modal.Title>
@@ -41,6 +42,7 @@ class AddBook extends React.Component {
                     </Button>
                 </Modal.Footer>
             </Modal>
+            </>
         )
     }
 }

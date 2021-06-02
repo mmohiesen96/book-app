@@ -6,6 +6,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import AddBook from './AddBook';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 
 class MyFavoriteBooks extends React.Component {
   constructor(props) {
@@ -71,11 +73,11 @@ class MyFavoriteBooks extends React.Component {
       email : this.props.auth0.user.email,
     }
     let newBooks = await axios.post('http://localhost:3001/addBook', bookData);
-
     this.setState({
       books:newBooks.data,
       showModal:false
     })
+    NotificationManager.success('Book Name : ' + this.state.bookName, 'Added to ' + this.props.auth0.user.email);
   }
 
   deleteBook = async(index) => {
@@ -88,9 +90,19 @@ class MyFavoriteBooks extends React.Component {
       books:newBooks.data
     })
   }
+
+
+
+
+
+
+
+
+
   render() {
     return (
       <>
+        <NotificationContainer></NotificationContainer>
         <Button variant="primary" onClick={this.handleModal}>Add Book</Button>
         {this.state.showModal && <AddBook hideModal={this.closeModal} showModalBool ={this.state.showModal} handleName={this.setName}
           handleDescription={this.setDescription}
