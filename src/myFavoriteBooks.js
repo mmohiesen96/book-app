@@ -39,7 +39,7 @@ class MyFavoriteBooks extends React.Component {
     })
   }
   componentDidMount = async () => {
-    const books = await axios.get('http://localhost:3001/books', { params: { email: this.props.auth0.user.email } })
+    const books = await axios.get(`${process.env.REACT_APP_HEROKU}/books`, { params: { email: this.props.auth0.user.email } })
     console.log('books', books.data)
     this.setState({
       books: books.data
@@ -75,7 +75,7 @@ class MyFavoriteBooks extends React.Component {
       image_url: this.state.imageUrl,
       email: this.props.auth0.user.email,
     }
-    let newBooks = await axios.post('http://localhost:3001/addBook', bookData);
+    let newBooks = await axios.post(  `${process.env.REACT_APP_HEROKU}/addBook`, bookData);
     this.setState({
       books: newBooks.data,
       showModal: false
@@ -87,7 +87,7 @@ class MyFavoriteBooks extends React.Component {
     const userEmail = {
       email: this.props.auth0.user.email
     }
-    let newBooks = await axios.delete(`http://localhost:3001/deleteBook/${index}`, { params: userEmail })
+    let newBooks = await axios.delete(`${process.env.REACT_APP_HEROKU}/deleteBook/${index}`, { params: userEmail })
 
     this.setState({
       books: newBooks.data
@@ -124,7 +124,7 @@ class MyFavoriteBooks extends React.Component {
       email : this.props.auth0.user.email
     }
 
-    let newBooksData = await axios.put(`http://localhost:3001/updateBook/${this.state.index}`, bookData);
+    let newBooksData = await axios.put(`${process.env.REACT_APP_HEROKU}/updateBook/${this.state.index}`, bookData);
     NotificationManager.info('Successful', 'Book : ' + this.state.bookName + ' Edited');
     this.setState({
       books:newBooksData.data,
